@@ -40,6 +40,8 @@ The broker stores a **collection representation**, such as term frequencies, doc
 
 **Trade-off:** querying more sources can improve recall but increases latency, traffic and result-merging work. Querying too few risks missing relevant results. Resource descriptions must be updated as collections change.
 
+For an examination answer, distinguish **resource selection** from document ranking: the former decides *where* to search, the latter orders *individual documents*. A broker might first select two of ten libraries using sampled vocabulary, send the same query to both, then merge their documents. It should not compare raw scores blindly when the local systems use different scales.
+
 ### Distributed query processing and merging
 
 **PYQs:** M23 Q3(b); N24 Q4(b).
@@ -116,6 +118,8 @@ A multimedia data model describes both **logical objects** and their internal re
 
 Exact field matches and approximate similarity scores may be combined. Feature extraction and semantic labels can be uncertain; a score is not a guarantee of true meaning.
 
+Consider a five-minute wildlife video: the model stores its ID, title and duration, links it to audio and video tracks, and assigns timestamps to scenes. Extracted visual descriptors describe frames; recognized speech or captions provide text. A request for “birds near water in the first minute” combines a temporal restriction with uncertain visual or text-based evidence. The system should return a ranked clip and enough context to inspect it, rather than pretending the recognition is exact.
+
 ### Multimedia query language
 
 **PYQs:** N22 Q4(b).
@@ -155,6 +159,8 @@ Product-specific names, limits and multimedia extensions vary by product and ver
 **Working:** a client creates or requests a document; a document server stores the object, type, attributes and components; a query may combine attributes and content; matching documents or components are retrieved and presented. A type can constrain what components an instance contains. For example, a letter type can include sender and recipient; the corresponding components of a particular letter contain their actual values. The book illustrates a conceptual letter structure on [PDF page 28](../Books/ISR_Decode_Units03-06.pdf#page=28).
 
 **Why useful:** structured retrieval can locate a letter by sender, its text, or a component. **Limitations:** models and clients must agree on document structure; managing diverse media, permissions and efficient similarity search adds complexity. Distinguish the historical MULTOS model from generic modern database features.
+
+For example, the query “letters from Patil about retrieval” combines a sender attribute with a content condition. The server identifies matching document instances and returns the selected document or component; a client presents it according to the stored layout. Logical structure describes *what parts exist*, layout describes *how they appear*, and conceptual structure relates parts to *domain meaning*. These views are complementary rather than three separate documents.
 
 ## 5. GEMINI: generic multimedia indexing
 

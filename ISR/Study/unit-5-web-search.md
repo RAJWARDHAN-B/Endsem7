@@ -17,6 +17,8 @@ An example search-engine workflow:
 5. **Ranking:** score candidates using relevance signals, possibly including text, links, freshness and other factors.
 6. **Presentation:** show ranked titles, URLs and snippets; support filtering, reformulation and feedback.
 
+For example, a crawler discovers a university's public course page and the indexer associates its terms with its document ID. Later, the query `information retrieval` retrieves candidate IDs from the index; the ranker orders candidates and the interface displays titles and snippets. **Offline** crawling/indexing and **online** query processing are different phases: the engine does not normally crawl the entire web for every query.
+
 **Example inverted index:** if document D1 contains “web retrieval” and D2 contains “image retrieval”, postings for `retrieval` include D1 and D2, while `web` points to D1. For `web retrieval`, the engine can efficiently identify D1 without scanning every document at query time.
 
 | Search engine | Web directory | Meta-searcher |
@@ -57,6 +59,19 @@ A **web crawler** automatically discovers and fetches web resources to build or 
 6. **Duplicate detection and filters:** avoid repeated content and disallowed URL patterns; add suitable new links to the frontier.
 7. **Storage and indexer:** store or pass processed documents to the indexer, which builds searchable term-to-document postings.
 8. **Revisit policy:** schedule previously fetched pages again when appropriate; update or remove obsolete index entries.
+
+**Walk-through:** starting at an allowed department home page, the fetcher obtains HTML, the parser extracts a link to a course page, and the frontier schedules it. The indexer tokenizes the course page and adds its document ID to relevant postings. When the page changes, a later revisit updates the indexed content. The scheduling and duplicate checks prevent the crawler from blindly following the same links forever.
+
+### Harvest: a distributed crawler–indexer architecture
+
+The textbook also discusses **Harvest**, a historical modular distributed architecture. Its [architecture diagram is on PDF page 48](../Books/ISR_Decode_Units03-06.pdf#page=48).
+
+1. A **gatherer** collects documents from one or more servers and extracts resource descriptions or summaries from supported formats.
+2. A **broker** receives those descriptions, builds an index and offers a query interface. A broker can combine information from multiple gatherers, and a gatherer can supply multiple brokers.
+3. A **replicator** provides replicas to help handle demand; an **object cache** can reduce repeated transfers and access latency.
+4. A user sends a query to the broker; the broker searches its index and returns relevant references. The user can then obtain the original object, potentially using the cache.
+
+Example: a university gatherer summarizes public library pages and sends descriptions to an academic broker. A research broker may reuse the same descriptions instead of independently crawling everything. Compared with gathering full documents at one central site, this can distribute work and reduce transferred data, but summaries must be maintained and may omit information useful for a query. Harvest's gatherers and brokers are a particular historical design; modern crawlers need not use those names.
 
 Use `robots.txt` guidance and published access policies, avoid overwhelming servers, and respect permissions and applicable terms. `robots.txt` is not an authentication mechanism or permission to access private data.
 

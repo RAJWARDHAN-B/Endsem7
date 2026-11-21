@@ -17,16 +17,16 @@ The papers generally offer **Q1 or Q2**, **Q3 or Q4**, **Q5 or Q6**, and **Q7 or
 
 These links point to the repository copies, which are currently Git LFS pointers in this checkout. Install Git LFS and hydrate them to open the PDFs. The paper content was analyzed using copies verified against the pointers' SHA-256 hashes.
 
-| Code | Paper |
-|---|---|
-| N22 | [Nov–Dec 2022](../PYQ/ISR_Endsem_2022_Nov-Dec.pdf) |
-| M23 | [May–Jun 2023 backlog](../PYQ/ISR_Endsem_2023_May-Jun_Backlog.pdf) |
-| N23 | [Nov–Dec 2023](../PYQ/ISR_Endsem_2023_Nov-Dec.pdf) |
-| M24 | [May–Jun 2024 backlog](../PYQ/ISR_Endsem_2024_May-Jun_Backlog.pdf) |
-| N24 | [Nov–Dec 2024](../PYQ/ISR_Endsem_2024_Nov-Dec.pdf) |
-| M25 | [May–Jun 2025](../PYQ/ISR_Endsem_2025_May-Jun.pdf) |
-| N25 | [Nov–Dec 2025](../PYQ/ISR_Endsem_2025_Nov-Dec.pdf) |
-| M26 | [May–Jun 2026](../PYQ/ISR_Endsem_2026_May-Jun.pdf) |
+| Code | Paper | Detailed answers |
+|---|---|---|
+| N22 | [Nov–Dec 2022](../PYQ/ISR_Endsem_2022_Nov-Dec.pdf) | [Answers](../PYQ/ISR_Endsem_2022_Nov-Dec_ans.md) |
+| M23 | [May–Jun 2023 backlog](../PYQ/ISR_Endsem_2023_May-Jun_Backlog.pdf) | [Answers](../PYQ/ISR_Endsem_2023_May-Jun_Backlog_ans.md) |
+| N23 | [Nov–Dec 2023](../PYQ/ISR_Endsem_2023_Nov-Dec.pdf) | [Answers](../PYQ/ISR_Endsem_2023_Nov-Dec_ans.md) |
+| M24 | [May–Jun 2024 backlog](../PYQ/ISR_Endsem_2024_May-Jun_Backlog.pdf) | [Answers](../PYQ/ISR_Endsem_2024_May-Jun_Backlog_ans.md) |
+| N24 | [Nov–Dec 2024](../PYQ/ISR_Endsem_2024_Nov-Dec.pdf) | [Answers](../PYQ/ISR_Endsem_2024_Nov-Dec_ans.md) |
+| M25 | [May–Jun 2025](../PYQ/ISR_Endsem_2025_May-Jun.pdf) | [Answers](../PYQ/ISR_Endsem_2025_May-Jun_ans.md) |
+| N25 | [Nov–Dec 2025](../PYQ/ISR_Endsem_2025_Nov-Dec.pdf) | [Answers](../PYQ/ISR_Endsem_2025_Nov-Dec_ans.md) |
+| M26 | [May–Jun 2026](../PYQ/ISR_Endsem_2026_May-Jun.pdf) | [Answers](../PYQ/ISR_Endsem_2026_May-Jun_ans.md) |
 
 M25 and N25 have substantially overlapping questions, with some differences; do not treat them as independent evidence of topic frequency.
 

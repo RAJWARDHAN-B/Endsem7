@@ -37,6 +37,8 @@ The document root is `article`; `title` and `section` are children; `p` is neste
 
 This distinction describes typical use, not a hard boundary: a document may need both ranked text search and exact structural conditions.
 
+For example, a book's `<section>` elements contain prose and benefit from ranked topical matching, whereas a catalog's `<product><price>` values support exact numeric comparisons. A product description can also contain prose; a practical system can apply `price < 500` first and then rank the matching descriptions by relevance. The output must identify the element and preserve enough context for the user to understand it.
+
 ### XML retrieval challenges
 
 **PYQs:** N24 Q7(b).
@@ -95,6 +97,15 @@ Document A ranks first under this simple model. A cold-start user has no reliabl
 Collaborative filtering predicts interests from user–item interactions. **User-based CF** finds users with similar rating patterns and recommends items they liked that the target user has not seen. **Item-based CF** finds items with similar interaction patterns and recommends items related to those the user liked. Model-based approaches such as matrix factorization learn user and item representations from the interaction matrix.
 
 **Example:** A and B both liked documents X and Y. B also liked Z, which A has not read. A user-based recommender may suggest Z to A, subject to sufficient evidence. Common issues are sparse ratings, cold-start users/items, popularity bias and changing preferences.
+
+For a user-based system, collect ratings or interactions, compute similarity over comparable items, select neighbors, aggregate their evidence for unseen items and rank the predictions. A simple illustrative rating matrix is:
+
+| User | Document X | Document Y | Document Z |
+|---|---:|---:|---:|
+| A | 5 | 4 | Not rated |
+| B | 5 | 4 | 5 |
+
+Because A and B agree on X and Y, B's rating makes Z a candidate for A. This is a prediction, not a certainty; two shared ratings alone are weak evidence. Missing ratings mean **unknown**, not zero. An item-based variant instead compares columns and recommends items similar in interaction patterns to those A liked.
 
 ### Comparison
 
