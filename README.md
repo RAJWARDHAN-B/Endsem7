@@ -13,3 +13,12 @@ supplements support our Unit 3 but retain their source's printed Unit IV numberi
 The older SPM supplements cover activity planning, project monitoring, and staffing
 (our Units 3-5); their unrelated Agile Project Management chapters are excluded.
 Different publishers' explanations of the same topics are retained.
+
+RESOURCES:
+
+Uni-PYQ: https://drive.google.com/drive/folders/0Bz9C0ysJZ7PnMGZKeWcybUpXWGM?resourcekey=0-S2yaWXvAG7ObM_Gc8LRNTQ
+Tech-neo: https://drive.google.com/drive/folders/1a_Y0QmgkL5Q4-NY-QZ8F3utDUMF4KpPw
+
+https://drive.google.com/drive/folders/1bUKh6QLfon6vXaliS1rYTr9sj-OlDWpO
+
+https://drive.google.com/drive/folders/1VhxyLyhSoXMp7eMsqsDSMZ6BA-Vdo62I
