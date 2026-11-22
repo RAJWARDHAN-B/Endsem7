@@ -22,3 +22,5 @@ Tech-neo: https://drive.google.com/drive/folders/1a_Y0QmgkL5Q4-NY-QZ8F3utDUMF4Kp
 https://drive.google.com/drive/folders/1bUKh6QLfon6vXaliS1rYTr9sj-OlDWpO
 
 https://drive.google.com/drive/folders/1VhxyLyhSoXMp7eMsqsDSMZ6BA-Vdo62I
+
+https://chatgpt.com/share/6b029ac6-5558-83e8-9a04-9c363dd78520
