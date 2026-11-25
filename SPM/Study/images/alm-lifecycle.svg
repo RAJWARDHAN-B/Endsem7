@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="260" viewBox="0 0 1050 260" role="img" aria-labelledby="title desc">
+  <title id="title">Application lifecycle management</title><desc id="desc">Planning, building, testing, releasing and operating form an iterative lifecycle, with feedback returning to planning and eventual retirement.</desc>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#334155"/></marker></defs>
+  <rect width="1050" height="260" fill="#f8fafc"/><text x="525" y="32" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#0f172a">Application lifecycle: continuous feedback</text>
+  <g font-family="Arial,sans-serif" font-size="17" text-anchor="middle" fill="#0f172a">
+    <g stroke="#334155" stroke-width="3" fill="none" marker-end="url(#a)"><path d="M172 110 H203"/><path d="M352 110 H383"/><path d="M532 110 H563"/><path d="M712 110 H743"/><path d="M892 110 H923"/></g>
+    <rect x="20" y="75" width="152" height="70" rx="10" fill="#dbeafe" stroke="#2563eb"/><text x="96" y="116">Plan</text>
+    <rect x="205" y="75" width="147" height="70" rx="10" fill="#e0f2fe" stroke="#0284c7"/><text x="278" y="116">Design / build</text>
+    <rect x="385" y="75" width="147" height="70" rx="10" fill="#fef3c7" stroke="#d97706"/><text x="458" y="116">Test</text>
+    <rect x="565" y="75" width="147" height="70" rx="10" fill="#dcfce7" stroke="#16a34a"/><text x="638" y="116">Release</text>
+    <rect x="745" y="75" width="147" height="70" rx="10" fill="#ede9fe" stroke="#7c3aed"/><text x="818" y="116">Operate</text>
+    <rect x="925" y="75" width="105" height="70" rx="10" fill="#f1f5f9" stroke="#64748b"/><text x="977" y="116">Retire</text>
+    <path d="M818 145 V200 H96 V150" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#a)"/><text x="455" y="230" font-size="16">User and operational feedback informs the next iteration</text>
+  </g>
+</svg>

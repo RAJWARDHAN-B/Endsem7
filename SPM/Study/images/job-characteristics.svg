@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="355" viewBox="0 0 1000 355" role="img" aria-labelledby="title desc">
+  <title id="title">Hackman Oldham job characteristics model</title><desc id="desc">Variety, identity and significance affect meaningfulness; autonomy affects responsibility; feedback affects knowledge of results, influencing outcomes.</desc>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#334155"/></marker></defs>
+  <rect width="1000" height="355" fill="#f8fafc"/>
+  <text x="500" y="32" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#0f172a">Job characteristics → psychological states → outcomes</text>
+  <g font-family="Arial,sans-serif" font-size="17" text-anchor="middle" fill="#0f172a">
+    <rect x="30" y="60" width="260" height="95" rx="10" fill="#dbeafe" stroke="#2563eb"/><text x="160" y="88">Skill variety</text><text x="160" y="113">Task identity</text><text x="160" y="138">Task significance</text>
+    <rect x="30" y="175" width="260" height="55" rx="10" fill="#dbeafe" stroke="#2563eb"/><text x="160" y="209">Autonomy</text>
+    <rect x="30" y="250" width="260" height="55" rx="10" fill="#dbeafe" stroke="#2563eb"/><text x="160" y="284">Feedback</text>
+    <rect x="370" y="78" width="260" height="60" rx="10" fill="#fef3c7" stroke="#d97706"/><text x="500" y="114">Meaningfulness</text>
+    <rect x="370" y="175" width="260" height="55" rx="10" fill="#fef3c7" stroke="#d97706"/><text x="500" y="209">Responsibility</text>
+    <rect x="370" y="250" width="260" height="55" rx="10" fill="#fef3c7" stroke="#d97706"/><text x="500" y="284">Knowledge of results</text>
+    <rect x="720" y="140" width="245" height="115" rx="10" fill="#dcfce7" stroke="#16a34a"/><text x="842" y="172">Motivation,</text><text x="842" y="197">satisfaction and</text><text x="842" y="222">performance</text>
+    <g stroke="#334155" stroke-width="3" fill="none" marker-end="url(#a)"><path d="M290 108 H365"/><path d="M290 202 H365"/><path d="M290 277 H365"/><path d="M630 108 L715 168"/><path d="M630 202 H715"/><path d="M630 277 L715 227"/></g>
+  </g>
+</svg>

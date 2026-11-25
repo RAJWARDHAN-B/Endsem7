@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="310" viewBox="0 0 1000 310" role="img" aria-labelledby="title desc">
+  <title id="title">Change control workflow</title><desc id="desc">A logged request is assessed and either rejected or deferred, or approved before implementation, test, release and record updates.</desc>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#334155"/></marker></defs>
+  <rect width="1000" height="310" fill="#f8fafc"/>
+  <text x="500" y="32" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#0f172a">Controlled change workflow</text>
+  <g font-family="Arial,sans-serif" font-size="17" text-anchor="middle" fill="#0f172a">
+    <g fill="none" stroke="#334155" stroke-width="3" marker-end="url(#a)"><path d="M180 110 H207"/><path d="M370 110 H397"/><path d="M560 110 H587"/><path d="M750 110 H777"/></g>
+    <rect x="20" y="75" width="160" height="70" rx="10" fill="#dbeafe" stroke="#2563eb"/><text x="100" y="105">Request</text><text x="100" y="127">and log</text>
+    <rect x="210" y="75" width="160" height="70" rx="10" fill="#e0f2fe" stroke="#0284c7"/><text x="290" y="105">Analyze</text><text x="290" y="127">impact</text>
+    <rect x="400" y="75" width="160" height="70" rx="10" fill="#fef3c7" stroke="#d97706"/><text x="480" y="105">Decision</text><text x="480" y="127">by authority</text>
+    <rect x="590" y="75" width="160" height="70" rx="10" fill="#dcfce7" stroke="#16a34a"/><text x="670" y="105">Implement</text><text x="670" y="127">and test</text>
+    <rect x="780" y="75" width="200" height="70" rx="10" fill="#ede9fe" stroke="#7c3aed"/><text x="880" y="105">Release and</text><text x="880" y="127">update records</text>
+    <text x="575" y="96" font-size="14">yes</text>
+    <path d="M480 145 V206" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#a)"/><text x="505" y="180" font-size="14">no</text>
+    <rect x="395" y="210" width="170" height="65" rx="10" fill="#ffe4e6" stroke="#be123c"/><text x="480" y="248">Reject / defer</text>
+  </g>
+</svg>

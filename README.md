@@ -24,3 +24,5 @@ https://drive.google.com/drive/folders/1bUKh6QLfon6vXaliS1rYTr9sj-OlDWpO
 https://drive.google.com/drive/folders/1VhxyLyhSoXMp7eMsqsDSMZ6BA-Vdo62I
 
 https://chatgpt.com/share/6b029ac6-5558-83e8-9a04-9c363dd78520
+
+https://chatgpt.com/share/6b03a9df-7454-83ee-941c-38f47661f3aa
