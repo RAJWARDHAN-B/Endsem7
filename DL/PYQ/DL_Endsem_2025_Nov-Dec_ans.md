@@ -2,7 +2,7 @@
 
 [Question paper](DL_Endsem_2025_Nov-Dec.pdf) | [Study index](../Study/README.md)
 
-Question headings are paraphrased; both sides of each OR are answered. Marks follow the paper. Examples are illustrative. The question-paper PDF link requires Git LFS hydration in this checkout. Decode links below point to converted textbook pages; the detailed answers are original explanations and also use the linked study notes.
+Question headings are paraphrased; both sides of each OR are answered. Marks follow the paper. Examples are illustrative. The question-paper PDF link requires Git LFS hydration in this checkout. Decode textbook figures are embedded below; some topics include a full page for context. The detailed answers are original explanations and also use the linked study notes.
 
 ## Q1(a) — RNNs for sequence modelling and applications [9 marks]
 
@@ -81,6 +81,12 @@ At time step t the same transition accepts a new x_t and the previous h_(t−1);
 
 The hidden state carries information forward: after reading “The food was not”, the state can influence the prediction after “good”. This makes order and preceding context relevant. It is an approximate, task-trained memory, however; it is not guaranteed to preserve every earlier token. A bidirectional RNN additionally uses later context, but needs access to it and therefore is not strictly causal. LSTM/GRU gating can improve learning of longer dependencies at extra computational cost.
 
+### Decode reference illustration
+
+![Decode recurrent network architecture](../Study/images/decode-figures/rnn.png)
+
+*Decode textbook, PDF page 2: recurrent network architecture. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-002.png).*
+
 **References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 1 image](../Books/DL_Decode_Units03-06_images/page-001.png).
 
 ## Q1(b) — RNN versus feed-forward and RNN operation [9 marks]
@@ -136,6 +142,12 @@ RNN:   word1 ──> state1 ──> state2 ──> class
 
 An RNN shares its transition parameters across positions, so an input may have a different number of steps from another. Its hidden state is a learned summary, not an exact archive; long dependencies may be forgotten. A plain FFNN does not retain state between independently presented examples.
 
+### Decode reference illustration
+
+![Decode recurrent network architecture](../Study/images/decode-figures/rnn.png)
+
+*Decode textbook, PDF page 2: recurrent network architecture. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-002.png).*
+
 **References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 1 image](../Books/DL_Decode_Units03-06_images/page-001.png).
 
 ## Q2(a) — Recursive networks for hierarchy and applications [9 marks]
@@ -172,6 +184,12 @@ For children `h_left`, `h_right`, a simple parent representation is `h_parent = 
 Leaf vectors come from word embeddings; a shared composition function combines the children into their parent, then repeats upward. A classifier can use the root representation, or a model can label individual subtrees. In “not good”, composing the negation with “good” can change the phrase representation before the rest of the sentence is combined.
 
 Illustrative variants include a **binary tree RvNN**, combining two children at a time; a **tree-structured LSTM**, which adds gates and cell states at tree nodes; and a **recursive autoencoder**, which composes children and learns to reconstruct child representations. Other tree shapes and composition functions are possible, so “types” are not one universally fixed list. Compared with a chain RNN, a tree exposes hierarchical relationships and shares composition parameters across nodes, but needs a suitable structure and may propagate parsing errors.
+
+### Decode reference illustration
+
+![Decode recursive tree structure](../Study/images/decode-figures/recursive.png)
+
+*Decode textbook, PDF page 10: recursive tree structure. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-010.png).*
 
 **References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 10 image](../Books/DL_Decode_Units03-06_images/page-010.png).
 
@@ -261,6 +279,12 @@ RNN:   word1 ──> state1 ──> state2 ──> class
 
 An RNN shares its transition parameters across positions, so an input may have a different number of steps from another. Its hidden state is a learned summary, not an exact archive; long dependencies may be forgotten. A plain FFNN does not retain state between independently presented examples.
 
+### Decode reference illustration
+
+![Decode recursive tree structure](../Study/images/decode-figures/recursive.png)
+
+*Decode textbook, PDF page 10: recursive tree structure. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-010.png).*
+
 **References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 1 image](../Books/DL_Decode_Units03-06_images/page-001.png) · [Decode page 10 image](../Books/DL_Decode_Units03-06_images/page-010.png).
 
 ## Q3(a) — Encoder-decoder architecture and uses [8 marks]
@@ -334,6 +358,12 @@ input x ──> encoder fθ ──> latent code z ──> decoder gφ ──> re
 
 For an image of 784 normalized pixels, an encoder might produce a 32-number code and the decoder reconstruct 784 values. Compare x̂ with the original x, average the loss over a minibatch, backpropagate through both networks, and update θ and φ. Once trained, the encoder alone can supply features; the full pair reconstructs input. This is self-supervised in the sense that the target is derived from the input, without manual class labels. Architecture, latent size, output activation and loss should fit the data. A small reconstruction error alone does not prove that the representation is semantically useful.
 
+### Decode reference illustration
+
+![Decode sequence-to-sequence encoder and decoder](../Study/images/decode-figures/seq2seq.png)
+
+*Decode textbook, PDF page 9: sequence-to-sequence encoder and decoder. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-009.png).*
+
 **References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 9 image](../Books/DL_Decode_Units03-06_images/page-009.png) · [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png) · [Decode page 17 image](../Books/DL_Decode_Units03-06_images/page-017.png).
 
 ## Q3(b) — Regularized autoencoders and uses [9 marks]
@@ -394,6 +424,12 @@ input → encoder → compact code → retrieval index / classifier
 
 **Anomaly detection:** train on normal sensor readings, then measure each new sample's reconstruction error. Choose a threshold using validation data and investigate points above it. A high error can suggest an unusual pattern, not prove a fault; some anomalies reconstruct well and normal observations may have high error. A denoising autoencoder and a classifier using latent features are other applications.
 
+### Decode reference illustration
+
+![Decode sparse autoencoder](../Study/images/decode-figures/sparse-autoencoder.png)
+
+*Decode textbook, PDF page 13: sparse autoencoder. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-013.png).*
+
 **References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png) · [Decode page 13 image](../Books/DL_Decode_Units03-06_images/page-013.png) · [Decode page 17 image](../Books/DL_Decode_Units03-06_images/page-017.png).
 
 ## Q4(a) — Applications of autoencoders [8 marks]
@@ -419,6 +455,16 @@ input → encoder → compact code → retrieval index / classifier
 **Information retrieval:** train an encoder on representative documents or images, encode each database item, and store its vector in an index. Encode a new query by the same preprocessing and model, compute cosine similarity or another distance, and return the nearest candidates. The compact vector speeds similarity search and reduces feature storage, but a reconstruction objective alone may not preserve the semantic similarity a user wants. Evaluate retrieval with relevance-labelled queries.
 
 **Anomaly detection:** train on normal sensor readings, then measure each new sample's reconstruction error. Choose a threshold using validation data and investigate points above it. A high error can suggest an unusual pattern, not prove a fault; some anomalies reconstruct well and normal observations may have high error. A denoising autoencoder and a classifier using latent features are other applications.
+
+### Decode reference illustration
+
+![Decode autoencoder architecture](../Study/images/decode-figures/autoencoder.png)
+
+*Decode textbook, PDF page 12: autoencoder architecture. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-012.png).*
+
+![Decode textbook page 17: autoencoder applications and information retrieval](../Books/DL_Decode_Units03-06_images/page-017.png)
+
+*Decode textbook, PDF page 17: autoencoder applications and information retrieval. Full page included for context.*
 
 **References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png) · [Decode page 17 image](../Books/DL_Decode_Units03-06_images/page-017.png).
 
@@ -480,6 +526,16 @@ Instead of producing exactly one latent vector, a stochastic encoder defines a d
 
 These are not mutually exclusive design constraints: a model can include both stochastic components and a sensitivity penalty.
 
+### Decode reference illustration
+
+![Decode contractive loss and Jacobian penalty](../Study/images/decode-figures/contractive-objective.png)
+
+*Decode textbook, PDF page 15: contractive loss and Jacobian penalty. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-015.png).*
+
+![Decode stochastic autoencoder](../Study/images/decode-figures/stochastic-autoencoder.png)
+
+*Decode textbook, PDF page 14: stochastic autoencoder. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-014.png).*
+
 **References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png) · [Decode page 14 image](../Books/DL_Decode_Units03-06_images/page-014.png) · [Decode page 15 image](../Books/DL_Decode_Units03-06_images/page-015.png).
 
 ## Q5(a) — CNN variants and one architecture in detail [9 marks]
@@ -522,6 +578,12 @@ If x0 has 64 channels and each layer contributes growth rate k=16, the third lay
 
 Dense concatenation reuses early features and creates shorter paths for gradient flow, often allowing parameter-efficient feature learning. Unlike ResNet's elementwise addition, DenseNet keeps earlier maps by concatenating channels. It can be useful for classification, but memory cost and latency may rise because many maps must be retained. Whether it is good for a given dataset must be established using held-out evaluation.
 
+### Decode reference illustration
+
+![Decode DenseNet dense block](../Study/images/decode-figures/densenet.png)
+
+*Decode textbook, PDF page 20: DenseNet dense block. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-020.png).*
+
 **References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 20 image](../Books/DL_Decode_Units03-06_images/page-020.png).
 
 ## Q5(b) — Domain adaptation examples [9 marks]
@@ -560,6 +622,12 @@ A **domain** includes the feature space and input distribution; a task defines t
 
 In **homogeneous** adaptation the feature spaces match, such as RGB images from different cameras; their distributions may still differ. In **heterogeneous** adaptation feature spaces differ and a shared representation or mapping is needed. Domain adaptation is a focused case of transfer; broader transfer can also involve a different task. Neither guarantees improvement: target labels or a suitable evaluation set are needed to measure target performance.
 
+### Decode reference illustration
+
+![Decode textbook page 19: transfer learning and domain adaptation](../Books/DL_Decode_Units03-06_images/page-019.png)
+
+*Decode textbook, PDF page 19: transfer learning and domain adaptation. Full page included for context.*
+
 **References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 19 image](../Books/DL_Decode_Units03-06_images/page-019.png).
 
 ## Q6(a) — Distributed representation examples [9 marks]
@@ -583,6 +651,12 @@ raw pixels / words → learned feature vector → classifier / search / another 
 Raw pixels may change under lighting or translation even though the object class remains the same. A learned representation aims to retain distinctions relevant to the task while discounting nuisance variation. In a CNN, early filters can respond to local edges and later layers combine them into shapes. In a distributed word vector, many coordinates jointly encode a word and each coordinate can participate in representing many words; the numbers are learned, not necessarily independently interpretable. This supports reuse and combinations but can encode training-data bias.
 
 Important challenges include obtaining representative data, separating useful factors from correlated nuisances, avoiding the loss of discriminative detail, generalizing under domain shift, and interpreting/evaluating representations. Compare downstream performance with a baseline rather than assuming a visually compressed representation is useful.
+
+### Decode reference illustration
+
+![Decode textbook page 18: representation learning](../Books/DL_Decode_Units03-06_images/page-018.png)
+
+*Decode textbook, PDF page 18: representation learning. Full page included for context.*
 
 **References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 18 image](../Books/DL_Decode_Units03-06_images/page-018.png).
 
@@ -613,6 +687,12 @@ With stacked **autoencoders**, train the first encoder/decoder to reconstruct in
 
 It is **greedy** because each stage optimizes a local objective, **layer-wise** because stages are added one at a time, and **pretraining** because joint task training follows. This can exploit unlabelled examples and improve initialization, particularly in historically difficult deep-network training. It is not guaranteed to help a particular task and has extra training/tuning cost.
 
+### Decode reference illustration
+
+![Decode textbook page 18: greedy layer-wise pretraining](../Books/DL_Decode_Units03-06_images/page-018.png)
+
+*Decode textbook, PDF page 18: greedy layer-wise pretraining. Full page included for context.*
+
 **References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 18 image](../Books/DL_Decode_Units03-06_images/page-018.png).
 
 ## Q7(a) — Deep learning techniques in NLP [8 marks]
@@ -639,6 +719,12 @@ text → tokenize → embeddings → CNN phrase filters → pool → class
 For sentiment, a recurrent model reads “not very good” in sequence and uses a final or pooled representation for a positive/negative classifier. For named-entity recognition it predicts a tag at each position. CNN filters over neighboring word embeddings detect local n-gram patterns and can be evaluated in parallel; larger contexts require stacked/dilated layers or other design choices. RNNs naturally carry sequential state and accept variable lengths, but can forget long context and are slower to parallelize. They are not universally preferable to CNNs or transformers.
 
 Other NLP tasks include translation, question answering, summarization, speech transcription post-processing, language modelling and information extraction. Use metrics matched to the task, such as classification accuracy or entity F1, on held-out data.
+
+### Decode reference illustration
+
+![Decode RNN framework for NLP](../Study/images/decode-figures/nlp-rnn.png)
+
+*Decode textbook, PDF page 34: RNN framework for NLP. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-034.png).*
 
 **References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 34 image](../Books/DL_Decode_Units03-06_images/page-034.png).
 
@@ -676,6 +762,12 @@ For a movie service, interactions such as viewing or ratings train user and item
 
 Content-based systems can recommend a new item with known features but may over-specialize; collaborative systems exploit shared behavior but struggle with sparse data and new users; hybrids combine signals. Popularity feedback loops, privacy, cold starts and exposure bias require attention even in deep models.
 
+### Decode reference illustration
+
+![Decode textbook page 30: recommender-system approaches](../Books/DL_Decode_Units03-06_images/page-030.png)
+
+*Decode textbook, PDF page 30: recommender-system approaches. Full page included for context.*
+
 **References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 30 image](../Books/DL_Decode_Units03-06_images/page-030.png).
 
 ## Q8(a) — CNNs in computer vision [8 marks]
@@ -711,6 +803,12 @@ Other approaches include hand-designed HOG features with an SVM and nearest-neig
 ### Beyond whole-image classification
 
 CNNs provide spatial features for **classification** (one or more image labels), **detection** (class plus bounding boxes) and **segmentation** (a label per pixel). A classifier aggregates learned maps into a class score; a detector adds localization heads, while a segmentation model retains or restores spatial resolution. Examples include defect inspection, document recognition and medical-image assistance. Other deep-learning applications include speech transcription, language translation, recommendation, time-series forecasting and anomaly detection. These are different output tasks, not interchangeable names. Accuracy depends on data and deployment conditions; a medical model requires appropriate validation and human oversight.
+
+### Decode reference illustration
+
+![Decode CNN image classifier](../Study/images/decode-figures/cnn-classifier.png)
+
+*Decode textbook, PDF page 24: CNN image classifier. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-024.png).*
 
 **References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 24 image](../Books/DL_Decode_Units03-06_images/page-024.png).
 
@@ -755,5 +853,11 @@ user features + friendship graph → neighbor aggregation → node embeddings �
 For an undirected graph A—B—C, B has degree 2 while A and C each have degree 1. The sole A–C shortest path passes through B, so B has greater betweenness than either endpoint. A GCN aggregates each node's own and its neighbors' features, applies learned weights and a nonlinearity, then repeats. Its embeddings can support community analysis, link prediction, recommendation or fraud detection, with appropriate labels and evaluation.
 
 For an undirected loop-free graph with n nodes and m edges, density is 2m/[n(n−1)]. Edge weights can encode interaction frequency; directed edges can distinguish following from being followed. Measures are structural proxies, not proof of actual influence. Protect user privacy and account for missing or biased relationships.
+
+### Decode reference illustration
+
+![Decode autoencoder-based graph representation, not a GCN](../Study/images/decode-figures/social-graph-autoencoder.png)
+
+*Decode textbook, PDF page 27: autoencoder-based graph representation, not a GCN. Cropped from the supplied page image; [full page](../Books/DL_Decode_Units03-06_images/page-027.png).*
 
 **References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 27 image](../Books/DL_Decode_Units03-06_images/page-027.png).
