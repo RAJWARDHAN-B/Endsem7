@@ -173,7 +173,7 @@ Leaf vectors come from word embeddings; a shared composition function combines t
 
 Illustrative variants include a **binary tree RvNN**, combining two children at a time; a **tree-structured LSTM**, which adds gates and cell states at tree nodes; and a **recursive autoencoder**, which composes children and learns to reconstruct child representations. Other tree shapes and composition functions are possible, so “types” are not one universally fixed list. Compared with a chain RNN, a tree exposes hierarchical relationships and shares composition parameters across nodes, but needs a suitable structure and may propagate parsing errors.
 
-**References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 1 image](../Books/DL_Decode_Units03-06_images/page-001.png).
+**References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 10 image](../Books/DL_Decode_Units03-06_images/page-010.png).
 
 ## Q2(b) — Recursive, recurrent and feed-forward networks [9 marks]
 
@@ -261,7 +261,7 @@ RNN:   word1 ──> state1 ──> state2 ──> class
 
 An RNN shares its transition parameters across positions, so an input may have a different number of steps from another. Its hidden state is a learned summary, not an exact archive; long dependencies may be forgotten. A plain FFNN does not retain state between independently presented examples.
 
-**References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 1 image](../Books/DL_Decode_Units03-06_images/page-001.png).
+**References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 1 image](../Books/DL_Decode_Units03-06_images/page-001.png) · [Decode page 10 image](../Books/DL_Decode_Units03-06_images/page-010.png).
 
 ## Q3(a) — Encoder-decoder architecture and uses [8 marks]
 
@@ -334,7 +334,7 @@ input x ──> encoder fθ ──> latent code z ──> decoder gφ ──> re
 
 For an image of 784 normalized pixels, an encoder might produce a 32-number code and the decoder reconstruct 784 values. Compare x̂ with the original x, average the loss over a minibatch, backpropagate through both networks, and update θ and φ. Once trained, the encoder alone can supply features; the full pair reconstructs input. This is self-supervised in the sense that the target is derived from the input, without manual class labels. Architecture, latent size, output activation and loss should fit the data. A small reconstruction error alone does not prove that the representation is semantically useful.
 
-**References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 1 image](../Books/DL_Decode_Units03-06_images/page-001.png) · [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png).
+**References:** [Study: unit-3-rnn](../Study/unit-3-rnn.md) · [Decode page 9 image](../Books/DL_Decode_Units03-06_images/page-009.png) · [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png) · [Decode page 17 image](../Books/DL_Decode_Units03-06_images/page-017.png).
 
 ## Q3(b) — Regularized autoencoders and uses [9 marks]
 
@@ -385,11 +385,16 @@ With an L1 penalty, the objective is reconstruction loss plus λ times the sum o
 
 ### Two application walkthroughs
 
+```text
+input → encoder → compact code → retrieval index / classifier
+                     └─────────→ decoder → reconstruction
+```
+
 **Information retrieval:** train an encoder on representative documents or images, encode each database item, and store its vector in an index. Encode a new query by the same preprocessing and model, compute cosine similarity or another distance, and return the nearest candidates. The compact vector speeds similarity search and reduces feature storage, but a reconstruction objective alone may not preserve the semantic similarity a user wants. Evaluate retrieval with relevance-labelled queries.
 
 **Anomaly detection:** train on normal sensor readings, then measure each new sample's reconstruction error. Choose a threshold using validation data and investigate points above it. A high error can suggest an unusual pattern, not prove a fault; some anomalies reconstruct well and normal observations may have high error. A denoising autoencoder and a classifier using latent features are other applications.
 
-**References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png).
+**References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png) · [Decode page 13 image](../Books/DL_Decode_Units03-06_images/page-013.png) · [Decode page 17 image](../Books/DL_Decode_Units03-06_images/page-017.png).
 
 ## Q4(a) — Applications of autoencoders [8 marks]
 
@@ -406,11 +411,16 @@ For a 9-mark application answer, draw the encoder-decoder, explain training and 
 
 ### Two application walkthroughs
 
+```text
+input → encoder → compact code → retrieval index / classifier
+                     └─────────→ decoder → reconstruction
+```
+
 **Information retrieval:** train an encoder on representative documents or images, encode each database item, and store its vector in an index. Encode a new query by the same preprocessing and model, compute cosine similarity or another distance, and return the nearest candidates. The compact vector speeds similarity search and reduces feature storage, but a reconstruction objective alone may not preserve the semantic similarity a user wants. Evaluate retrieval with relevance-labelled queries.
 
 **Anomaly detection:** train on normal sensor readings, then measure each new sample's reconstruction error. Choose a threshold using validation data and investigate points above it. A high error can suggest an unusual pattern, not prove a fault; some anomalies reconstruct well and normal observations may have high error. A denoising autoencoder and a classifier using latent features are other applications.
 
-**References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png).
+**References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png) · [Decode page 17 image](../Books/DL_Decode_Units03-06_images/page-017.png).
 
 ## Q4(b) — Contractive versus stochastic autoencoders [9 marks]
 
@@ -470,7 +480,7 @@ Instead of producing exactly one latent vector, a stochastic encoder defines a d
 
 These are not mutually exclusive design constraints: a model can include both stochastic components and a sensitivity penalty.
 
-**References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png).
+**References:** [Study: unit-4-autoencoders](../Study/unit-4-autoencoders.md) · [Decode page 12 image](../Books/DL_Decode_Units03-06_images/page-012.png) · [Decode page 14 image](../Books/DL_Decode_Units03-06_images/page-014.png) · [Decode page 15 image](../Books/DL_Decode_Units03-06_images/page-015.png).
 
 ## Q5(a) — CNN variants and one architecture in detail [9 marks]
 
@@ -512,7 +522,7 @@ If x0 has 64 channels and each layer contributes growth rate k=16, the third lay
 
 Dense concatenation reuses early features and creates shorter paths for gradient flow, often allowing parameter-efficient feature learning. Unlike ResNet's elementwise addition, DenseNet keeps earlier maps by concatenating channels. It can be useful for classification, but memory cost and latency may rise because many maps must be retained. Whether it is good for a given dataset must be established using held-out evaluation.
 
-**References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 19 image](../Books/DL_Decode_Units03-06_images/page-019.png).
+**References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 20 image](../Books/DL_Decode_Units03-06_images/page-020.png).
 
 ## Q5(b) — Domain adaptation examples [9 marks]
 
@@ -539,6 +549,12 @@ It can reduce data and training needs. If source and target are very different, 
 **Homogeneous adaptation:** source and target have the same feature space, e.g. RGB images from two cameras. **Heterogeneous adaptation:** feature spaces differ, e.g. text and image representations, requiring a suitable shared mapping; a shared semantic task/labels may still be needed. Same feature space does not mean identical data distributions.
 
 ### Domain adaptation in practice
+
+```text
+labelled source images ──→ source model ──→ adaptation ──→ target model
+unlabelled target images ────────────────────↑                 ↓
+                                                   evaluate on target data
+```
 
 A **domain** includes the feature space and input distribution; a task defines the prediction objective. Consider labelled daytime road images (source) and mostly unlabelled nighttime road images (target), both for pedestrian detection. The task is related but the lighting distribution shifts. Start from the source model, then use labelled target examples for fine-tuning if available, or use an unsupervised domain-adaptation method with labelled source and unlabelled target. Reweighting, domain-invariant features or carefully validated augmentation are possible strategies.
 
@@ -568,7 +584,7 @@ Raw pixels may change under lighting or translation even though the object class
 
 Important challenges include obtaining representative data, separating useful factors from correlated nuisances, avoiding the loss of discriminative detail, generalizing under domain shift, and interpreting/evaluating representations. Compare downstream performance with a baseline rather than assuming a visually compressed representation is useful.
 
-**References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 19 image](../Books/DL_Decode_Units03-06_images/page-019.png).
+**References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 18 image](../Books/DL_Decode_Units03-06_images/page-018.png).
 
 ## Q6(b) — Greedy layer-wise pretraining [9 marks]
 
@@ -597,7 +613,7 @@ With stacked **autoencoders**, train the first encoder/decoder to reconstruct in
 
 It is **greedy** because each stage optimizes a local objective, **layer-wise** because stages are added one at a time, and **pretraining** because joint task training follows. This can exploit unlabelled examples and improve initialization, particularly in historically difficult deep-network training. It is not guaranteed to help a particular task and has extra training/tuning cost.
 
-**References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 19 image](../Books/DL_Decode_Units03-06_images/page-019.png).
+**References:** [Study: unit-5-representation](../Study/unit-5-representation.md) · [Decode page 18 image](../Books/DL_Decode_Units03-06_images/page-018.png).
 
 ## Q7(a) — Deep learning techniques in NLP [8 marks]
 
@@ -624,7 +640,7 @@ For sentiment, a recurrent model reads “not very good” in sequence and uses 
 
 Other NLP tasks include translation, question answering, summarization, speech transcription post-processing, language modelling and information extraction. Use metrics matched to the task, such as classification accuracy or entity F1, on held-out data.
 
-**References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 23 image](../Books/DL_Decode_Units03-06_images/page-023.png).
+**References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 34 image](../Books/DL_Decode_Units03-06_images/page-034.png).
 
 ## Q7(b) — Deep-learning recommender systems [9 marks]
 
@@ -660,7 +676,7 @@ For a movie service, interactions such as viewing or ratings train user and item
 
 Content-based systems can recommend a new item with known features but may over-specialize; collaborative systems exploit shared behavior but struggle with sparse data and new users; hybrids combine signals. Popularity feedback loops, privacy, cold starts and exposure bias require attention even in deep models.
 
-**References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 23 image](../Books/DL_Decode_Units03-06_images/page-023.png).
+**References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 30 image](../Books/DL_Decode_Units03-06_images/page-030.png).
 
 ## Q8(a) — CNNs in computer vision [8 marks]
 
@@ -696,7 +712,7 @@ Other approaches include hand-designed HOG features with an SVM and nearest-neig
 
 CNNs provide spatial features for **classification** (one or more image labels), **detection** (class plus bounding boxes) and **segmentation** (a label per pixel). A classifier aggregates learned maps into a class score; a detector adds localization heads, while a segmentation model retains or restores spatial resolution. Examples include defect inspection, document recognition and medical-image assistance. Other deep-learning applications include speech transcription, language translation, recommendation, time-series forecasting and anomaly detection. These are different output tasks, not interchangeable names. Accuracy depends on data and deployment conditions; a medical model requires appropriate validation and human oversight.
 
-**References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 23 image](../Books/DL_Decode_Units03-06_images/page-023.png).
+**References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 24 image](../Books/DL_Decode_Units03-06_images/page-024.png).
 
 ## Q8(b) — Social network analysis with deep architectures [9 marks]
 
@@ -740,4 +756,4 @@ For an undirected graph A—B—C, B has degree 2 while A and C each have degree
 
 For an undirected loop-free graph with n nodes and m edges, density is 2m/[n(n−1)]. Edge weights can encode interaction frequency; directed edges can distinguish following from being followed. Measures are structural proxies, not proof of actual influence. Protect user privacy and account for missing or biased relationships.
 
-**References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 23 image](../Books/DL_Decode_Units03-06_images/page-023.png).
+**References:** [Study: unit-6-applications](../Study/unit-6-applications.md) · [Decode page 27 image](../Books/DL_Decode_Units03-06_images/page-027.png).

@@ -17,15 +17,15 @@ The papers generally offer **Q1 or Q2**, **Q3 or Q4**, **Q5 or Q6**, and **Q7 or
 
 The links below point to the repository copies. They are currently Git LFS pointers in this checkout; install Git LFS and hydrate them to open the PDFs. The content was checked against hash-verified copies during preparation.
 
-| Short name used in notes | Paper |
-|---|---|
-| N22 | [Nov-Dec 2022](../PYQ/DL_Endsem_2022_Nov-Dec.pdf) |
-| M23 | [May-Jun 2023, backlog](../PYQ/DL_Endsem_2023_May-Jun_Backlog.pdf) |
-| N23 | [Nov-Dec 2023](../PYQ/DL_Endsem_2023_Nov-Dec.pdf) |
-| M24 | [May-Jun 2024, backlog](../PYQ/DL_Endsem_2024_May-Jun_Backlog.pdf) |
-| M25 | [May-Jun 2025](../PYQ/DL_Endsem_2025_May-Jun.pdf) |
-| N25 | [Nov-Dec 2025](../PYQ/DL_Endsem_2025_Nov-Dec.pdf) |
-| M26 | [May-Jun 2026](../PYQ/DL_Endsem_2026_May-Jun.pdf) |
+| Short name used in notes | Paper | Detailed answers |
+|---|---|---|
+| N22 | [Nov-Dec 2022](../PYQ/DL_Endsem_2022_Nov-Dec.pdf) | [Answers](../PYQ/DL_Endsem_2022_Nov-Dec_ans.md) |
+| M23 | [May-Jun 2023, backlog](../PYQ/DL_Endsem_2023_May-Jun_Backlog.pdf) | [Answers](../PYQ/DL_Endsem_2023_May-Jun_Backlog_ans.md) |
+| N23 | [Nov-Dec 2023](../PYQ/DL_Endsem_2023_Nov-Dec.pdf) | [Answers](../PYQ/DL_Endsem_2023_Nov-Dec_ans.md) |
+| M24 | [May-Jun 2024, backlog](../PYQ/DL_Endsem_2024_May-Jun_Backlog.pdf) | [Answers](../PYQ/DL_Endsem_2024_May-Jun_Backlog_ans.md) |
+| M25 | [May-Jun 2025](../PYQ/DL_Endsem_2025_May-Jun.pdf) | [Answers](../PYQ/DL_Endsem_2025_May-Jun_ans.md) |
+| N25 | [Nov-Dec 2025](../PYQ/DL_Endsem_2025_Nov-Dec.pdf) | [Answers](../PYQ/DL_Endsem_2025_Nov-Dec_ans.md) |
+| M26 | [May-Jun 2026](../PYQ/DL_Endsem_2026_May-Jun.pdf) | [Answers](../PYQ/DL_Endsem_2026_May-Jun_ans.md) |
 
 **Counting caveat:** the removed Nov-Dec 2024 DL paper and retained M26 paper have the same questions but different paper codes. They are treated as one question set, not independent evidence of topic frequency.
 
