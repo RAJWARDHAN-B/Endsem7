@@ -26,3 +26,24 @@ https://drive.google.com/drive/folders/1VhxyLyhSoXMp7eMsqsDSMZ6BA-Vdo62I
 https://chatgpt.com/share/6b029ac6-5558-83e8-9a04-9c363dd78520
 
 https://chatgpt.com/share/6b03a9df-7454-83ee-941c-38f47661f3aa
+
+## Converting PDFs to images
+
+Install the Python dependency once:
+
+```sh
+python -m pip install pymupdf
+```
+
+Convert a PDF into one PNG per page (150 DPI by default):
+
+```sh
+python scripts/pdf_to_images.py "DL/PYQ/DL_Endsem_2026_May-Jun.pdf"
+```
+
+Images are written to a sibling folder named `<pdf-name>_images`. Use `--dpi`
+to change the resolution or `--output-dir` to choose another folder:
+
+```sh
+python scripts/pdf_to_images.py input.pdf --dpi 300 --output-dir rendered-pages
+```
